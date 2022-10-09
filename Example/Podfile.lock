@@ -1,0 +1,16 @@
+PODS:
+  - YQDefaultValue (0.1.0)
+
+DEPENDENCIES:
+  - YQDefaultValue (from `../`)
+
+EXTERNAL SOURCES:
+  YQDefaultValue:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  YQDefaultValue: 221fd85187283f86dd223c4e7e4a5b606ccb02be
+
+PODFILE CHECKSUM: 3b475b18a6dc944a2f3e5c4a333fbb0ad39d2745
+
+COCOAPODS: 1.11.3

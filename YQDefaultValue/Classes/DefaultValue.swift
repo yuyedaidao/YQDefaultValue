@@ -9,7 +9,7 @@ import Foundation
 
 
 public protocol DefaultValue {
-    associatedtype Value: Decodable
+    associatedtype Value: Codable
     static var defaultValue: Value { get }
 }
 
@@ -22,10 +22,14 @@ public struct Default<T: DefaultValue> {
     }
 }
 
-extension Default: Decodable {
+extension Default: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         wrappedValue = (try? container.decode(T.Value.self)) ?? T.defaultValue
+    }
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(wrappedValue)
     }
 }
 

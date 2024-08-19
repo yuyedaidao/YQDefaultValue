@@ -93,32 +93,9 @@ extension Float: DefaultValue {
 extension Double: DefaultValue {
     public static let defaultValue: Double = 0
 }
-
-@propertyWrapper
-public struct DefaultArray<Element: Codable>: Codable {
-    public var wrappedValue: [Element]
-    public init(wrappedValue: [Element]) {
-        self.wrappedValue = wrappedValue
+extension Array: DefaultValue where Element: Codable {
+    public static var defaultValue: [Element] {
+        [Element]()
     }
-}
-
-public extension DefaultArray {
-    init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        wrappedValue = (try? container.decode([Element].self)) ?? [Element]()
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encode(wrappedValue)
-    }
-}
-
-extension KeyedDecodingContainer {
-    func decode<E>(
-        _ type: DefaultArray<E>.Type,
-        forKey key: Key
-    ) throws -> DefaultArray<E>  {
-        try decodeIfPresent(type, forKey: key) ?? DefaultArray(wrappedValue: [E]())
-    }
+    public typealias Value = [Element]
 }

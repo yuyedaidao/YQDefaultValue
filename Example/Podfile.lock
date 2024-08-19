@@ -1,5 +1,5 @@
 PODS:
-  - YQDefaultValue (0.1.0)
+  - YQDefaultValue (0.1.1)
 
 DEPENDENCIES:
   - YQDefaultValue (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YQDefaultValue: 221fd85187283f86dd223c4e7e4a5b606ccb02be
+  YQDefaultValue: 5c0922d63a746e34e4fa0e98b7a57462957ee8a0
 
 PODFILE CHECKSUM: 3b475b18a6dc944a2f3e5c4a333fbb0ad39d2745
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1
